@@ -1,0 +1,27 @@
+.pager{
+    margin-top: 15px;
+    text-align: center;
+}
+.item{
+    border: 1px solid gray;
+    color: rgb(44, 44, 248);
+    padding: 6px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+    /* font-size: 16px; */
+}
+.item.disabled{
+    cursor: not-allowed;
+    border-color: gray;
+    color: gray;
+}
+.item.active{
+    border: none;
+    color: #f40;
+}
+.currentPage{
+    margin-left: 10px;
+    display: inline-block;
+}

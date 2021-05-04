@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: #008c8c;
+    color: #3c3c3c;
+}
+.left{
+    font-size: 1.5em;
+}
+.right, .left{
+    margin: auto 50px
+}
+.right span, .right button{
+    margin-left: 10px;
+    
+}

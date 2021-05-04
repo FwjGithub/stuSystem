@@ -1,0 +1,19 @@
+.aside{
+    list-style: none;
+    background: #008c8c;
+    height: 100%;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 50px;
+    font-size: 1.5em;
+}
+.aside li{
+    width: 100%;
+    padding: 10px 0;
+}
+.aside li a.active{
+    color: #40a9ff;
+}
