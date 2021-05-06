@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, Input, Button, Radio, Select } from 'antd'
+// import useState from 'umi'
 const { useForm } = Form;
 export default function StudentForm(props) {
     const [form] = useForm()
@@ -16,15 +17,20 @@ export default function StudentForm(props) {
         }
         return options;
     }
+    useEffect(() => {
+        form.setFieldsValue(props.initVal)
+
+    }, [props.initVal])
     return (
-        <Form form={form} initialValues={{}} onFinish={handleSubmit} labelCol={{ span: 2 }} wrapperCol={{ span: 16, offset: 1 }}>
-            <Form.Item name='sNo' disabled={!!props.sNo} label='学号' rules={[
+
+        <Form form={form} onFinish={handleSubmit} labelCol={{ span: 3 }} wrapperCol={{ span: 16, offset: 1 }}>
+            <Form.Item name='sNo' label='学号' rules={[
                 {
                     required: true,
                     message: '请输入你的学号'
                 }
             ]} >
-                <Input />
+                <Input disabled={!!props.initVal}   />
             </Form.Item>
             <Form.Item name='name' label='姓名' rules={[
                 {
@@ -58,7 +64,7 @@ export default function StudentForm(props) {
                 {
                     required: true,
                     message: '请填写手机号',
-                },{
+                }, {
                     pattern: /1\d{10}/g,
                     message: '请输入正确形式的11位手机号'
                 }
@@ -86,7 +92,7 @@ export default function StudentForm(props) {
                 <Input />
             </Form.Item>
             <Form.Item >
-                <Button type='primary' htmlType='submit' style={{ width: '20%', margin: '0 50%' }}>提交</Button>
+                <Button type='primary' htmlType='submit' style={{ width: '20%', margin: '0 50%' }}>{props.initVal ? '修改' : '添加'}</Button>
             </Form.Item>
         </Form>
     )

@@ -1,0 +1,18 @@
+.login{
+    width: 100%;
+    text-align: center;
+    padding-top: 200px;
+    box-sizing: border-box;
+
+}
+.login div{
+    margin-top: 20px;
+}
+.login div .inp{
+    width: 300px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+.login .btn{
+    width: 100px;
+}

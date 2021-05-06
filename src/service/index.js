@@ -1,5 +1,5 @@
 let appkey = 'Luffy_1581000453399';
-// appkey='demo13_1545210570249'
+appkey='demo13_1545210570249'
 import qs from 'querystring'
 
 // "http://open.duyiedu.com/api/student/findAll?appkey=Luffy_1581000453399"
@@ -8,7 +8,7 @@ export async function getAllStudents(){
                     .then(resp => resp.json()).then(resp => resp.data);
 }
 export async function getStudentsByPage(page, limit) {
-    return await fetch(`/api/student/findByPage?appkey=Luffy_1581000453399&page=${page || 1}&size=${limit}`)
+    return await fetch(`/api/student/findByPage?appkey=${appkey}&page=${page || 1}&size=${limit}`)
         .then(resp => resp.json()).then(resp => resp.data);
 }
 /**
@@ -51,9 +51,13 @@ export async function updateStudent(stuObj){
     return await fetch(`/api/student/updateStudent?appkey=${appkey}&${stuStr}`)
         .then(resp => resp.json());
 }
-export async function getStudentBySNo(sNo){
-    const stus =  await getAllStudents();
-    return stus.find(item => item.sNo === sNo)
+export async function getStudentBySNo(sNo, page, limit){
+    // const stus =  await getAllStudents();
+    // console.log(page, limit);
+    const stus =  await getStudentsByPage(page, limit);
+
+    // console.log(stus);
+    return stus.findByPage.find(item => item.sNo === sNo)
 }
 
 export async function getRegion(parentId = null){
@@ -62,5 +66,24 @@ export async function getRegion(parentId = null){
         url += `?parentId=${parentId}`
     }
     const resp =  await fetch(url).then(resp => resp.json)
+    return resp;
+}
+
+export async function stuLogin(account, password){
+    const url = `/api/student/stuLogin?appkey=${appkey}&account=${account}&password=${password}`
+    console.log('url', url);
+    const resp = await fetch(url, {
+        method: 'POST'
+    }).then(resp => resp.json())
+    // console.log(resp);
+    return resp;
+}
+export async function stuRegister(account,username, password, rePassword){
+    const url = `/api/student/stuRegister?appkey=${appkey}&account=${account}&username=${username}&password=${password}&rePassword=${rePassword}`
+    console.log('url', url);
+    const resp = await fetch(url, {
+        method: 'POST'
+    }).then(resp => resp.json())
+    // console.log(resp);
     return resp;
 }

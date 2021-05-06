@@ -73,7 +73,7 @@ const mapStateToProps = (state, ownProps) => {
             title: '详情',
             dataIndex: 'sNo',
             render(sNo) {
-                return <NavLink to={`/student/${sNo}`}>详情</NavLink>
+                return <NavLink style={{color: '#1890ff'}} to={`/student/${sNo}?page=${state.students.condition.page}&limit=${state.students.condition.limit}`}>详情</NavLink>
             }
         }
     ]
@@ -85,7 +85,7 @@ const mapStateToProps = (state, ownProps) => {
         total: state.students.result.total,
         showQuickJumper: true,
         showSizeChanger: true,
-        pageSizeOptions: [10, 20, 30],
+        pageSizeOptions: [10, 15, 20],
 
     }
 }

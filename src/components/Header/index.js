@@ -10,7 +10,7 @@ export default function header(props) {
     return (
         <Row justify='space-between'>
             <Col>
-                <Title level={1} style={{color: '#fff', fontWeight:'500', lineHeight: '64px'}}>欢迎使用学生管理系统</Title>
+                <Title level={1} style={{color: '#fff', fontWeight:'500', lineHeight: '64px'}}>学生管理系统</Title>
             </Col>
             <Col>
                 <Space size='middle'>

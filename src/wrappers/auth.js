@@ -1,4 +1,5 @@
 import {withRouter, Redirect} from 'umi'
+import {Button} from 'antd'
 function HandleLogin({children, history}) {
     const loginId = localStorage.getItem("loginId")
     // console.log('children', loginId);
@@ -8,10 +9,9 @@ function HandleLogin({children, history}) {
     }
     else{
         return (<>
-            <div>你好，请先登录</div>
-            <button onClick={()=>[
+            <Button type='link' onClick={()=>[
               history.push('/login')
-            ]}>点击跳转到登录页面</button>
+            ]}>请先登录，点击登录</Button>
         </>)
     }
     // return <Redirect to='/login' />

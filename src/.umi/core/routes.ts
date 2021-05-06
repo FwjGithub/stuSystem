@@ -23,6 +23,11 @@ export function getRoutes() {
         "component": require('@/pages/login.js').default
       },
       {
+        "path": "/register",
+        "exact": true,
+        "component": require('@/pages/register.js').default
+      },
+      {
         "path": "/student/add",
         "exact": true,
         "component": require('@/pages/student/add.js').default,

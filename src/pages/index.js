@@ -11,9 +11,9 @@ function index() {
     const [pathArr, setPathArr] = useState([path1,path2,path3])
     return (
         <>
-            <h1>
+            <h2>
                 欢迎使用学生管理系统
-            </h1>
+            </h2>
         </>
     )
 }
